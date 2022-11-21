@@ -34,6 +34,12 @@ export class UsersController {
   }
 
   @UseGuards(AuthGuard('jwt'))
+  @Get(':id')
+  async getMe(@Param() params) {
+    return this.userService.getMe(params.id);
+  }
+
+  @UseGuards(AuthGuard('jwt'))
   @Post(':id/upload')
   @UseInterceptors(FileInterceptor('file'))
   async uploadAvatar(

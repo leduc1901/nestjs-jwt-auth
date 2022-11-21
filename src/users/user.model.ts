@@ -7,7 +7,7 @@ export const UserSchema = new mongoose.Schema({
 });
 
 export interface User {
-  id: string;
+  _id: string;
   username: string;
   password: string;
   avatar?: string;

@@ -31,6 +31,14 @@ export class UsersService {
     });
   }
 
+  async getMe(userId): Promise<User | undefined> {
+    const user = await this.userModel.findById(userId);
+    if (!user) {
+      throw 'User not found';
+    }
+    return user;
+  }
+
   async uploadAvatar(
     avatar: Express.Multer.File,
     userId: string,
